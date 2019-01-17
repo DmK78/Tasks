@@ -30,7 +30,7 @@ public class TasksMain {
 
 
     private static final String user = "root";
-    private static final String password = "123";
+    private static final String password = "1234";
 
     // JDBC variables for opening and managing connection
     private static Connection con;
@@ -38,6 +38,37 @@ public class TasksMain {
     private static ResultSet rs;
 
     public static void main(String[] args) throws IOException, ParseException {
+
+        //#########################################CREATE CONTACTS######################################
+        /*CREATE TABLE `contacts` (
+                `contact_id` int(11) NOT NULL AUTO_INCREMENT,
+                `name` varchar(45) DEFAULT NULL,
+        `phone` varchar(45) DEFAULT NULL,
+        `email` varchar(45) DEFAULT NULL,
+        PRIMARY KEY (`contact_id`),
+                UNIQUE KEY `contact_id_UNIQUE` (`contact_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci*/
+//###########################################CREATE JOBS##############################
+        /*CREATE TABLE `jobs` (
+                `jobs_id` int(11) NOT NULL AUTO_INCREMENT,
+                `data` date NOT NULL,
+                `employer` int(11) DEFAULT NULL,
+        `hours` int(11) DEFAULT NULL,
+        `money` int(11) DEFAULT NULL,
+        `jobscol` varchar(45) NOT NULL,
+        PRIMARY KEY (`jobs_id`),
+                UNIQUE KEY `jobs_id_UNIQUE` (`jobs_id`),
+                KEY `contact_idx` (`employer`),
+                CONSTRAINT `contact` FOREIGN KEY (`employer`) REFERENCES `contacts` (`contact_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci*/
+
+
+
+
+
+
+
+
         menu();
         int s = inputNumber();
         while (s != 0) {
