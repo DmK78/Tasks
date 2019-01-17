@@ -337,68 +337,9 @@ public class TasksMain {
 
     public static void printJobsSummary() throws IOException, ParseException {
 
-
-        /*scan.nextLine();
-        System.out.println("Enter firdt date");
-        //String date1 = scan.nextLine();
-
-        //String date2 = scan.nextLine();
-
-        //BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        //String tempDate = reader.readLine();
-        String tempDate = scan.nextLine();
-        SimpleDateFormat format = new SimpleDateFormat();
-        format.applyPattern("dd.MM.yyyy");
-        Date date1 = format.parse(tempDate);
-        System.out.println(date1);
-
-
-        System.out.println("Enter second date");
-        tempDate = scan.nextLine();
-        SimpleDateFormat format1 = new SimpleDateFormat();
-        format1.applyPattern("dd.MM.yyyy");
-        Date date2 = format.parse(tempDate);
-
-        System.out.println("Enter employer");
-        String emp = scan.nextLine();
-
-        try {
-            // opening database connection to MySQL server
-            con = DriverManager.getConnection(url, user, password);
-
-            // getting Statement object to execute query
-            //stmt = con.createStatement();
-            try {
-                stmt = con.createStatement();
-
-                ResultSet rs = stmt.executeQuery("SELECT * FROM JOBS WHERE DATA >='" + date1 + "' AND DATA <='" + date2 + "' AND EMPLOYER=(SELECT CONTACT_ID FROM CONTACTS WHERE NAME='" + emp + "')");
-                //ResultSet rs = stmt.executeQuery("SELECT * FROM JOBS WHERE EMPLOYER=(SELECT CONTACT_ID FROM CONTACTS WHERE NAME='" + emp + "')");
-
-                rs.toString();
-
-                int sum = 0;
-                int time = 0;
-                while (rs.next()) {
-                    String str = rs.getString("jobs_id") + ": Дата: " + rs.getString(2) + " Клиент: " + rs.getString(3) + " Часов отработано: " + rs.getString(4) + " Сумма: " + rs.getString(5);
-                    System.out.println("Jobs: " + str);
-                    sum += rs.getInt(5);
-                    time += rs.getInt(4);
-                }
-
-
-                System.out.println("Time total: " + time + " jours, Money total: " + sum + " rub.");
-                rs.close();
-                stmt.close();
-            } finally {
-                con.close();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
-
         scan.nextLine();
         System.out.println("Enter first date YY.MM.DD ");
-        String date1=scan.nextLine();
+        String date1 = scan.nextLine();
 
         /*String tempDate = scan.nextLine();
         SimpleDateFormat format = new SimpleDateFormat();
@@ -407,7 +348,7 @@ public class TasksMain {
         System.out.println(date1);
 
         System.out.println("Enter second date YY.MM.DD");
-        String date2=scan.nextLine();
+        String date2 = scan.nextLine();
 
         /*tempDate = scan.nextLine();
         SimpleDateFormat format1 = new SimpleDateFormat();
@@ -419,7 +360,7 @@ public class TasksMain {
 
         //String query = "SELECT * FROM JOBS WHERE DATA >=('" + date1 + "') AND DATA <=('" + date2 + "') AND EMPLOYER=(SELECT CONTACT_ID FROM CONTACTS WHERE NAME='" + emp + "')";
         //String query = "SELECT * FROM JOBS WHERE DATA BETWEEN '" + date1 + "' AND '" + date2 + "' AND EMPLOYER=(SELECT CONTACT_ID FROM CONTACTS WHERE NAME='" + emp + "')";
-        String query ="SELECT * FROM JOBS WHERE DATA between '"+date1+"' and '"+date2+"' AND EMPLOYER=(SELECT CONTACT_ID FROM CONTACTS WHERE NAME='"+emp+"')";
+        String query = "SELECT * FROM JOBS WHERE DATA between '" + date1 + "' and '" + date2 + "' AND EMPLOYER=(SELECT CONTACT_ID FROM CONTACTS WHERE NAME='" + emp + "')";
         System.out.println(query);
         try {
             con = DriverManager.getConnection(url, user, password);
@@ -461,69 +402,6 @@ public class TasksMain {
             } catch (SQLException se) { /*can't do anything */ }
 
         }
-
-
-
-
-
-
-
-
-        /*scan.nextLine();
-        System.out.println("Enter firdt date");
-        //String date1 = scan.nextLine();
-
-        //String date2 = scan.nextLine();
-
-        //BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        //String tempDate = reader.readLine();
-        String tempDate = scan.nextLine();
-        SimpleDateFormat format = new SimpleDateFormat();
-        format.applyPattern("dd.MM.yyyy");
-        Date date1 = format.parse(tempDate);
-        System.out.println(date1);
-
-
-        System.out.println("Enter second date");
-        tempDate = scan.nextLine();
-        SimpleDateFormat format1 = new SimpleDateFormat();
-        format1.applyPattern("dd.MM.yyyy");
-        Date date2 = format.parse(tempDate);
-
-        System.out.println("Enter employer");
-        String emp = scan.nextLine();
-
-        try {
-            Class.forName("org.postgresql.Driver");
-            String url = "jdbc:postgresql://localhost:5432/contactdb";
-            String login = "postgres";
-            String password = "postgres";
-            Connection con = DriverManager.getConnection(url, login, password);
-            try {
-                Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM JOBS WHERE DATA >='" + date1 + "' AND DATA <='" + date2 + "' AND EMPLOYER=(SELECT CONTACT_ID FROM CONTACTS WHERE NAME='" + emp + "')");
-                rs.toString();
-
-                int sum = 0;
-                int time = 0;
-                while (rs.next()) {
-                    String str = rs.getString("jobs_id") + ": Дата: " + rs.getString(2) + " Клиент: " + rs.getString(3) + " Часов отработано: " + rs.getString(4) + " Сумма: " + rs.getString(5);
-                    System.out.println("Jobs: " + str);
-                    sum += rs.getInt(5);
-                    time += rs.getInt(4);
-                }
-
-
-                System.out.println("Time total: " + time + " jours, Money total: " + sum + " rub.");
-                rs.close();
-                stmt.close();
-            } finally {
-                con.close();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
-
 
     }
 }
